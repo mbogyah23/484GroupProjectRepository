@@ -22,6 +22,9 @@ public class Employee {
     private String cell;
     private String userName;
     private String password;
+    private double wage;
+    private double otWage = wage* 1.5;
+    private String type;
     public static int empCount;
 
     // constructor
@@ -36,13 +39,15 @@ public class Employee {
         cell = "";
         userName = "";
         password = "";
+        wage = 0.0;
+        type = "";
         empCount = 1;
 
     }
 
     public Employee(String fName, String lName, String street, String city,
             String state, int zipCode, String cell,
-            String userName, String password) {
+            String userName, String password,double wage, String type) {
         this.fName = fName;
         this.lName = lName;
         this.street = street;
@@ -52,6 +57,8 @@ public class Employee {
         this.cell = cell;
         this.userName = userName;
         this.password = password;
+        this.wage = wage;
+        this.type = type;
         empID = empCount++;
 
     }
@@ -131,6 +138,27 @@ public class Employee {
     public void setPassword(String password) {
         this.password = password;
     }
+    
+    public double getWage()
+    {
+        return this.wage;
+    }
+    
+    public void setWage(double wage)
+    {
+        this.wage = wage;
+    }
+    
+    public String getType()
+    {
+        return this.type;
+    }
+    
+    public void setType(String type)
+    {
+        this.type = type;
+    }
+    
 
     //methods
     public boolean checkCredentials(String userName, String password) {   //If username and password match return true
@@ -140,5 +168,13 @@ public class Employee {
         {
             return false;
         }
+  
+    }
+    @Override
+    public String toString(){
+        return "First Name: " + fName + ", Last Name: " + lName + ", Street: "
+                + street + ", City: " + city + ", State: " + state + ", ZipCode: " +
+                zipCode + ", Cell: " + cell + ", Username: " + userName + ", password: "
+                + password + ", Wage: " + wage + ", Type: " + type;
     }
 }
